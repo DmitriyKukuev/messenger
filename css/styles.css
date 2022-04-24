@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+body {
+  background: rgb(108,41,185);
+  background: radial-gradient(circle, rgba(108,41,185,1) 0%, rgba(7,127,180,1) 67%, rgba(116,180,238,1) 100%);
+  color: #0f141e;
+  font-size: 24px;
+  font-weight: normal;
+  font-family: "Roboto", sans-serif;
+}
+.content {
+  background: rgb(108,41,185);
+  background: linear-gradient(180deg, rgba(108,41,185,1) 0%, rgba(124,185,232,1) 45%, rgba(240,248,255,1) 100%);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+  max-width: 400px;
+  margin: auto;
+  border: 1px solid #b0ccb2;
+  border-radius: 40px;
+  margin-top: 100px;
+  height: 480px;
+}
+.logo {
+  width: 300px;
+  border-radius: 15px;
+  display: block;
+  margin: auto;
+  margin-top: 30px;
+}
+.autho {
+  display: grid;
+  margin: 20px 60px 30px;
+}
+.autho input{
+  font-size: 16px;
+  outline: none;
+  padding: 5px 0 5px 10px;
+  border-radius: 10px;
+  border: 1px solid;
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+  width: 95%;
+}
+.autho label{
+    padding-left: 10px;
+}
+.autho span{
+  font-size: 16px;
+  display: grid;
+  padding:5px 10px;
+
+}
+.form-input:nth-child(2){
+  margin-top: 20px;
+}
+.button{
+  display: block;
+  margin: 0 auto 10px;
+  background-color: #7CB9E8;
+  color: black;
+  border-radius: 10px;
+  border: none;
+  font-size: 20px;
+  width: 200px;
+  height: 50px;
+}
+.reg-forgot{
+  display: grid;
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+.reg-forgot button{
+  background: none;
+  border: none;
+  font-size: 16px;
+}
+.hello{
+  display: block;
+  margin: 75px auto 75px;
+  font-size: 24px;
+}
+button:hover{
+  cursor: pointer;
+}
+
+.hide{display: none;}
+.show{display: inline;}
