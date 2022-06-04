@@ -1,6 +1,7 @@
 <?php
+session_start();
 require "../connect.php";
-$user = $_COOKIE['user'];
+$user = $_SESSION['user'];
 $result = $mysql->query("SELECT `chat`.`chat_id`,`chat`.`name`
 FROM `user_chat`
 JOIN `user` ON `user_chat`.`user_id`=`user`.`user_id`

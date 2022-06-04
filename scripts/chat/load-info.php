@@ -1,8 +1,9 @@
 <?php
+session_start();
 $chat_id = $_GET['chat_id'];
 setcookie('chat', '', time() - 3600 * 12, "/");
 setcookie('chat', $chat_id, time() + 3600 * 12, "/");
-$user_id = $_COOKIE['user'];
+$user_id = $_SESSION['user'];
 require "../connect.php";
 $result = $mysql->query("SELECT `chat`.`chat_id`,`chat`.`name`
 FROM `chat` WHERE `chat`.`chat_id`='$chat_id'");

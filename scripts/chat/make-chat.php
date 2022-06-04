@@ -1,7 +1,8 @@
 <?
+session_start();
 require "../connect.php";
 $name = $_POST['name'];
-$this_user0 = $_COOKIE['user'];
+$this_user0 = $_SESSION['user'];
 $result = $mysql->query("SELECT `login` FROM `user` WHERE `user_id`=$this_user0")->fetch_assoc();
 $this_user = $result['login'];
 $users0 = explode("\n", str_replace("\r", "", $_POST['users']));

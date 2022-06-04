@@ -1,2 +1,2 @@
 <?php
-$mysql = new mysqli('localhost', 'root', '', 'messenger_db');
+$mysql = new mysqli('mysql', 'root', 'secret', 'messenger_db');

@@ -1,6 +1,7 @@
 <?php
+session_start();
 $chat_id = $_GET['chat_id'];
-$user_id = $_COOKIE['user'];
+$user_id = $_SESSION['user'];
 require "../connect.php";
 $result = $mysql->query("SELECT `chat`.`name`
 FROM `chat` WHERE `chat`.`chat_id`='$chat_id'");

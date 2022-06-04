@@ -1,7 +1,8 @@
 <?php
+session_start();
 require "../connect.php";
 $req = $_GET['user'];
-$this_user = $_COOKIE['user'];
+$this_user = $_SESSION['user'];
 $result = $mysql->query("SELECT `user`.`login`,`user`.`avatar_id` 
 FROM `user` WHERE `user`.`login` RLIKE '$req'");
 while ($i = $result->fetch_assoc()) {

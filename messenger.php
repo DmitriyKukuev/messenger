@@ -1,10 +1,17 @@
 <?php
-// if (!isset($_COOKIE['user'])) {
-//     header('Location: /index.php');
-// }
 if (isset($_COOKIE['chat'])) {
     setcookie('chat', '', time() - 3600 * 12, "/");
 }
+session_start();
+if(!isset($_SESSION['user'])||$_SESSION['user']==''){
+    header('Location: /index.html');
+}
+require "scripts/connect.php";
+$user_id = $_SESSION['user'];
+$result = $mysql->query("SELECT * FROM `user` WHERE `user_id`= '$user_id'");
+$user = $result->fetch_assoc();
+$av = $user['avatar_id'];
+$mysql->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,15 +22,6 @@ if (isset($_COOKIE['chat'])) {
     <link rel="stylesheet" href="css/messenger-style.css" />
     <title>KDA message</title>
 </head>
-
-<?
-require "scripts/connect.php";
-$dacookie = $_COOKIE['user'];
-$result = $mysql->query("SELECT * FROM `user` WHERE `user_id`= '$dacookie'");
-$user = $result->fetch_assoc();
-$av = $user['avatar_id'];
-$mysql->close();
-?>
 
 <body>
     <!-- левая часть -->
@@ -83,7 +81,7 @@ $mysql->close();
         <!-- центр: поле сообщений -->
         <div class="center-chat" id="">
             <div class="messages" id="messages">
-            <!-- сообщения -->
+                <!-- сообщения -->
             </div>
         </div>
         <!-- центральный низ: ввод и отправка сообщения -->
@@ -114,12 +112,12 @@ $mysql->close();
             <?
             for ($i = 1; $i < 7; $i++) {
             ?>
-                <button onclick="window.location.href='scripts/avatar/av-<? echo $i ?>.php'" class="av-ab">
-                    <img class="av-icon" src="img/<? echo $i; ?>.png">
+                <button onclick="window.location.href='scripts/av-update.php?avatar=<? echo $i ?>'" class="av-ab">
+                    <img class="av-icon" src="img/<? echo $i ?>.png">
                 </button>
             <? } ?>
         </div>
-        <button onclick="window.location.href='scripts/avatar/av-del.php'" class="av-del">Удалить аватар</button>
+        <button onclick="window.location.href='scripts/av-update.php?avatar=7'" class="av-del">Удалить аватар</button>
     </div>
 
     <!-- левое меню: создание чата -->
